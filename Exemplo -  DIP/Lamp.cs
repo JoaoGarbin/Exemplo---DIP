@@ -1,17 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Exemplo____DIP
+﻿namespace Exemplo____DIP
 {
-    public class Lamp(State State)
+    public class Lamp : IDevice
     {
+        private State State { get; set; }
+
+        public Lamp()
+        {
+            State = State.Off;
+        }
+
         public void Operate()
         {
             State = State == State.On ? State.Off : State.On;
-            Console.WriteLine($"Luz " + (State == State.On ? "Ligada" : "Desligada"));
+            Console.WriteLine($"Luz {(State == State.On ? "Ligada" : "Desligada")}");
         }
     }
 }

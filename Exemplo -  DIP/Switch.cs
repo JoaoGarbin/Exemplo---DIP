@@ -1,21 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Exemplo____DIP
+﻿namespace Exemplo____DIP
 {
-    public class Switch
+    public class Switch : IDevice
     {
-        private Lamp lamp;
-        public Switch(Lamp device)
+        private State State { get; set; }
+        public Switch()
         {
-            this.lamp = device;
+            State = State.Off;
         }
-        public void Press()
+        public void Operate()
         {
-            lamp.Operate();
+            State = State == State.On ? State.Off : State.On;
+            Console.WriteLine($"Tomada {(State == State.On ? "Ligada" : "Desligada")}");
         }
     }
 }
